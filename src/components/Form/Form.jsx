@@ -1,6 +1,5 @@
 import { Component } from "react"
-
-// import css from "./Form.module.css"
+import css from "./Form.module.css"
 
 class Form extends Component {
   state = {
@@ -51,7 +50,7 @@ class Form extends Component {
             type="tel"
             name="number"
             value={this.state.number}
-            pattern="(\+?( |-|\.)?\d{1,2}( |-|\.)?)?(\(?\d{3}\)?|\d{3})( |-|\.)?(\d{3}( |-|\.)?\d{4})"
+            pattern="(\+?( |-|\.)?\d{1,2}( |-|\.)?)?(\(?\d{3}\)?|\d{3})( |-|\.)?(\d{3}( |-|\.)?\d{3})"
             title="Номер телефона должен состоять из 11-12 цифр и может содержать цифры, пробелы, тире, пузатые скобки и может начинаться с +"
             required
             onChange={this.handleChange}
