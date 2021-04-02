@@ -9,21 +9,21 @@ class App extends Component {
   // numberInputId = uuidv4()
 
   state = {
-    contacts: [
-      { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
-      { id: "id-2", name: "Hermione Kline", number: "443-89-12" },
-      { id: "id-3", name: "Eden Clements", number: "645-17-79" },
-      { id: "id-4", name: "Annie Copeland", number: "227-91-26" },
-    ],
+    contacts: [],
     filter: "",
   }
 
   handleAddContact = (data) => {
+    const { contacts } = this.state
     const newContact = { ...data, id: uuidv4() }
 
-    this.setState((prevState) => ({
-      contacts: [newContact, ...prevState.contacts],
-    }))
+    if (contacts.map((contact) => contact.name.toLowerCase()).includes(data.name)) {
+      alert(`Contact "${data.name}" already exists`)
+    } else {
+      this.setState((prevState) => ({
+        contacts: [newContact, ...prevState.contacts],
+      }))
+    }
   }
 
   handleFilter = (event) => {
@@ -40,7 +40,7 @@ class App extends Component {
   }
 
   render() {
-    const { contacts, filter } = this.state
+    const { filter } = this.state
     const filteredContacts = this.getMatchingContacts()
 
     return (
