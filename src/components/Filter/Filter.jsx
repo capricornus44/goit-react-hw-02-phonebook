@@ -1,0 +1,12 @@
+import css from "./Filter.module.css"
+
+const Filter = ({ filter, onChange }) => {
+  return (
+    <div className={css.section}>
+      <p className={css.title}>Find contacts by name</p>
+      <input className={css.filterInput} type="text" value={filter} onChange={onChange} />
+    </div>
+  )
+}
+
+export default Filter

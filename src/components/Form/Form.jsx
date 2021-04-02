@@ -59,7 +59,7 @@ class Form extends Component {
           />
         </label>
 
-        <button type="submit" onAddContact={this.handleAddContact}>
+        <button type="submit" onSubmit={this.handleAddContact}>
           Add contact
         </button>
       </form>
