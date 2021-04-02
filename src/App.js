@@ -1,39 +1,32 @@
 import React, { Component } from "react"
-import From from "./components/Form"
+import Form from "./components/Form"
+import ContactList from "./components/ContactList"
 import { v4 as uuidv4 } from "uuid"
 
 class App extends Component {
-  nameInputId = uuidv4()
+  // nameInputId = uuidv4()
+  // numberInputId = uuidv4()
 
   state = {
     contacts: [],
   }
 
-  // contact = [
-  //   { name: "", id: null },
-  //   { name: "", id: null },
-  //   { name: "", id: null },
-  //   { name: "", id: null },
-  // ]
+  handleAddContact = (data) => {
+    const newContact = { ...data, id: uuidv4() }
 
-  // handleAddContact = (event) => {
-  //   const { contacts, name } = this.state
-  //   contacts.push(name)
-  //   console.log(contacts)
-  // }
+    this.setState((prevState) => ({
+      contacts: [newContact, ...prevState.contacts],
+    }))
+  }
 
   render() {
+    const { contacts } = this.state
+
     return (
       <>
-        <From />
-        <div>
-          <h2>Contacts</h2>
-          <ul>
-            <li>tel</li>
-            <li>tel</li>
-            <li>tel</li>
-          </ul>
-        </div>
+        <h1>Phonebook</h1>
+        <Form onSubmit={this.handleAddContact} />
+        <ContactList contacts={contacts} />
       </>
     )
   }

@@ -1,4 +1,5 @@
 import { Component } from "react"
+
 // import css from "./Form.module.css"
 
 class Form extends Component {
@@ -15,6 +16,17 @@ class Form extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
+
+    this.props.onSubmit(this.state)
+    this.reset()
+  }
+
+  reset = () => {
+    this.setState({
+      name: "",
+      number: "",
+      id: "",
+    })
   }
 
   render() {
