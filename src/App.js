@@ -4,6 +4,8 @@ import ContactList from "./components/ContactList"
 import Filter from "./components/Filter"
 import { v4 as uuidv4 } from "uuid"
 
+import "./App.css"
+
 class App extends Component {
   // nameInputId = uuidv4()
   // numberInputId = uuidv4()
@@ -55,14 +57,18 @@ class App extends Component {
     const filteredContacts = this.getMatchingContacts()
 
     return (
-      <>
-        <h1>Phonebook</h1>
-        <Form onSubmit={this.handleAddContact} />
+      <div className="container">
+        <section title="Phonebook" className="section">
+          <h1>Phonebook</h1>
+          <Form onSubmit={this.handleAddContact} />
+        </section>
 
-        <h2>Contacts</h2>
-        <Filter value={filter} onChange={this.handleFilter} />
-        <ContactList contacts={filteredContacts} onDeleteContact={this.deleteContact} />
-      </>
+        <section title="Contacts" className="section">
+          <h2>Contacts</h2>
+          <Filter value={filter} onChange={this.handleFilter} />
+          <ContactList contacts={filteredContacts} onDeleteContact={this.deleteContact} />
+        </section>
+      </div>
     )
   }
 }

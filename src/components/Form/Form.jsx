@@ -30,8 +30,8 @@ class Form extends Component {
   render() {
     // const { name, number } = this.state
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
+      <form onSubmit={this.handleSubmit} className={css.form}>
+        <label className={css.formLabel}>
           Name
           <input
             type="text"
@@ -41,10 +41,11 @@ class Form extends Component {
             title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
             required
             onChange={this.handleChange}
+            className={css.formInput}
           />
         </label>
 
-        <label>
+        <label className={css.formLabel}>
           Number
           <input
             type="tel"
@@ -54,10 +55,11 @@ class Form extends Component {
             title="Номер телефона должен состоять из 11-12 цифр и может содержать цифры, пробелы, тире, пузатые скобки и может начинаться с +"
             required
             onChange={this.handleChange}
+            className={css.formInput}
           />
         </label>
 
-        <button type="submit" onSubmit={this.handleAddContact}>
+        <button type="submit" onSubmit={this.handleAddContact} className={css.button}>
           Add contact
         </button>
       </form>
