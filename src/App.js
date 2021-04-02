@@ -39,6 +39,12 @@ class App extends Component {
     return contacts.filter((contact) => contact.name.toLowerCase().includes(optimizedFilter))
   }
 
+  deleteContact = (contactId) => {
+    this.setState((prevState) => ({
+      contacts: prevState.contacts.filter((contact) => contact.id !== contactId),
+    }))
+  }
+
   render() {
     const { filter } = this.state
     const filteredContacts = this.getMatchingContacts()
@@ -50,7 +56,7 @@ class App extends Component {
 
         <h2>Contacts</h2>
         <Filter value={filter} onChange={this.handleFilter} />
-        <ContactList contacts={filteredContacts} />
+        <ContactList contacts={filteredContacts} onDeleteContact={this.deleteContact} />
       </>
     )
   }

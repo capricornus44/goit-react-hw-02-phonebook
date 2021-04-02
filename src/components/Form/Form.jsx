@@ -25,7 +25,6 @@ class Form extends Component {
     this.setState({
       name: "",
       number: "",
-      id: "",
     })
   }
 
